@@ -1,0 +1,139 @@
+/* Üldine paigutus ja stiilid */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    box-sizing: border-box; 
+}
+
+/* Navigatsioonimenüü stiil */
+.navbar {
+    margin-bottom: 30px;
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-nav .nav-item {
+    margin-left: 15px;
+}
+
+/* Kontaktlehe konteiner */
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Päis ja pealkirjad */
+h1, h2 {
+    color: #333;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+/* Kontaktvormi stiilid */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Vahe väljade vahel */
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ühtlase kõrgusega sisestusväljad ja tekstiväli */
+input[type="text"],
+input[type="email"],
+textarea {
+    height: 40px; /* Ühtlane kõrgus tekstiväljadele */
+}
+
+/* Tekstiväljale eraldi kõrgus */
+textarea {
+    height: 120px; /* Pikem tekstiväli */
+    resize: vertical; /* Võimaldab kõrgust reguleerida */
+}
+
+/* Nupud */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Kontaktandmed ja lingid */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+ul a:hover {
+    text-decoration: underline;
+}
+
+/* Jaluse stiil */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ccc;
+}
+
+
+/* Kaardi konteineri kõrgus ühtlane */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Täidab kogu konteineri kõrguse */
+    min-height: 350px; /* Seame miinimum kõrguse, et kõik kaardid oleksid vähemalt sama kõrged */
+}
+
+/* Kaardi sisu ja piltide kohandamine */
+.card-body {
+    flex-grow: 1; /* Laseb kaardi sisu kasvada ja täita vaba ruumi */
+}
+
+/* Kõik pildid kaardil, et need ei veniks */
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Kõik pildid on sama kõrgusega */
+    object-fit: cover;
+}
+
