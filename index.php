@@ -1,6 +1,9 @@
 <?php
+include("include/settings.php"); //lae seaded
+include("include/mysqli.php"); // laen andmebaasi klass
+$db = new Db(); // loo andmebaasi objekt
 $page = isset($_GET['page']) ? $_GET['page'] : 'homepage';
-$allowed_pages = ['homepage', 'blog', 'contact', 'post1', 'post2', 'post3', 'post4', 'post5'];
+$allowed_pages = ['post_add','homepage', 'blog', 'contact', 'post'];
 if(!in_array($page, $allowed_pages)) {
     $page= 'homepage';
 }
@@ -21,7 +24,7 @@ if(!in_array($page, $allowed_pages)) {
     </div>
 
     <div class="container">
-        <?php include("$page.html"); ?>
+        <?php include("$page.php"); ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
