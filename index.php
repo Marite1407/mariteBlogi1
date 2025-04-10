@@ -3,7 +3,7 @@ include("include/settings.php"); //lae seaded
 include("include/mysqli.php"); // laen andmebaasi klass
 $db = new Db(); // loo andmebaasi objekt
 $page = isset($_GET['page']) ? $_GET['page'] : 'homepage';
-$allowed_pages = ['post_add','homepage', 'blog', 'contact', 'post'];
+$allowed_pages = ['post_add','homepage', 'blog', 'contact', 'post', 'post_edit', 'edit'];
 if(!in_array($page, $allowed_pages)) {
     $page= 'homepage';
 }
@@ -17,6 +17,7 @@ if(!in_array($page, $allowed_pages)) {
     <title>Marite reisiblogi - Reisiblogi</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 </head>
 <body>
 <div class="container">

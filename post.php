@@ -6,6 +6,14 @@ if(isset($_GET['sid']) && is_numeric($_GET['sid'])) {
     //$db->show($data);
     if($data !== false) {
         $val = $data[0];
+
+        $sql_prev = "SELECT id FROM blog WHERE added < '". $val['added'] . "' ORDER BY added DESC LIMIT 1";
+        $prev = $db->dbGetArray($sql_prev);
+
+        $sql_next = "SELECT id FROM blog WHERE added > '". $val['added'] . "' ORDER BY added ASC LIMIT 1";
+        $next = $db->dbGetArray($sql_next);
+
+        echo $prev[0]['id']." ".$next[0]['id'];
         
     ?>
 <!-- Postituse sisu -->
@@ -19,18 +27,29 @@ if(isset($_GET['sid']) && is_numeric($_GET['sid'])) {
                 <!-- Pilt Austraaliast -->
                 <img src="<?php echo $val['photo']; ?>" alt="Austraalia" class="img-fluid" style="max-height: 500px; object-fit: cover; width: 100%;">
 
-                <h2>Mis teeb Austraalia eriliseks?</h2>
+                <p><?php echo $val['context']; ?></p>
                 <p>Austraalia on ainus riik, mis on samal ajal ka terviklik kontinent. Siin on erakordselt mitmekesised looduskeskkonnad, alates kuumast kõrbest kuni troopiliste vihmametsadeni. Kuid Austraalia on tuntud ka oma ainulaadsete loomade ja imetlusväärsete loodusmälestiste poolest,
                 
                 <hr>
 
                 <p><strong>Kategooriad:</strong> <span class="badge bg-primary">Austraalia</span> <span class="badge bg-secondary">Reisimine</span></p>
 
-                <h3>Eelmine ja järgmine postitus</h3>
                 <p>
-                    <a href="index.php?page=post2">Järgmine postitus: Hispaania reis</a>
+                <?php
+                // eelmine nupp
+                if($prev !== false) {
+                    ?>
+                        <a href="?page=post&sid=<?= $prev[0]['id']; ?>" class="btn btn-primary">Eelmine postitus</a>
+                    <?php
+                }    
+                // järgmine nupp
+                if($next !== false) {
+                    ?>
+                        <a href="?page=post&sid=<?= $next[0]['id']; ?>" class="btn btn-primary">Järgmine postitus</a>
+                    <?php
+                }    
+                ?>    
                 </p>
-
             </div>
         </div>
     </div>
